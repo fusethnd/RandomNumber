@@ -97,6 +97,7 @@
 			children = (
 				A90174CA2B5A723600FF390C /* RandomNumberApp.swift */,
 				A90174CC2B5A723600FF390C /* ContentView.swift */,
+				A90174F52B5A726500FF390C /* Model */,
 				A90174CE2B5A723800FF390C /* Assets.xcassets */,
 				A90174D02B5A723800FF390C /* RandomNumber.entitlements */,
 				A90174D12B5A723800FF390C /* Preview Content */,
@@ -127,6 +128,13 @@
 				A90174E82B5A723800FF390C /* RandomNumberUITestsLaunchTests.swift */,
 			);
 			path = RandomNumberUITests;
+			sourceTree = "<group>";
+		};
+		A90174F52B5A726500FF390C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
