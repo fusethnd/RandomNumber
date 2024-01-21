@@ -14,8 +14,6 @@ struct Game {
     var text = ""
     
     mutating func check(guess: Int) {
-//  let difference = lround(guess.difference(target: target) * 100.0)
-//  score = 100 - difference
         if guess == target {
             text = "Correct! \n You guess in \(count) round"
             correct = true
