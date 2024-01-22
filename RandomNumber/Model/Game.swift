@@ -8,16 +8,18 @@
 import Foundation
 
 struct Game {
-    var target = Int.random(in: 1...100)
+    var target = Double.random(in: 0...1)
     var count = 0
     var correct = false
     var text = ""
     
-    mutating func check(guess: Int) {
-        if guess == target {
+    mutating func check(guess: Double) {
+        let guessVal = lround(guess*100)
+        let targetVal = lround(target*100)
+        if guessVal == targetVal {
             text = "Correct! \n You guess in \(count) round"
             correct = true
-        } else if guess < target {
+        } else if guessVal < targetVal {
             text = "Greater"
             count += 1
         } else {
@@ -26,8 +28,12 @@ struct Game {
         }
     }
     
+    static func toint(val: Double) -> Int{
+            return lround(val * 100)
+    }
+    
     mutating func startNewGame() {
         count = 0
-        target = Int.random(in: 1...100)
+        target = Double.random(in: 0...1)
     }
 }
