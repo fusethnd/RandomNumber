@@ -15,6 +15,7 @@
 		A90174E72B5A723800FF390C /* RandomNumberUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90174E62B5A723800FF390C /* RandomNumberUITests.swift */; };
 		A90174E92B5A723800FF390C /* RandomNumberUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90174E82B5A723800FF390C /* RandomNumberUITestsLaunchTests.swift */; };
 		A90174F92B5ACFA000FF390C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90174F82B5ACFA000FF390C /* Game.swift */; };
+		A90175032B6021AA00FF390C /* Fredoka-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A90175022B6021AA00FF390C /* Fredoka-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		A90174E62B5A723800FF390C /* RandomNumberUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberUITests.swift; sourceTree = "<group>"; };
 		A90174E82B5A723800FF390C /* RandomNumberUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A90174F82B5ACFA000FF390C /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		A90175022B6021AA00FF390C /* Fredoka-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fredoka-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		A90174C92B5A723600FF390C /* RandomNumber */ = {
 			isa = PBXGroup;
 			children = (
+				A90175022B6021AA00FF390C /* Fredoka-Regular.ttf */,
 				A90174CA2B5A723600FF390C /* RandomNumberApp.swift */,
 				A90174CC2B5A723600FF390C /* ContentView.swift */,
 				A90174F52B5A726500FF390C /* Model */,
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A90174D32B5A723800FF390C /* Preview Assets.xcassets in Resources */,
+				A90175032B6021AA00FF390C /* Fredoka-Regular.ttf in Resources */,
 				A90174CF2B5A723800FF390C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +435,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RandomNumber/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -469,6 +474,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RandomNumber/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
