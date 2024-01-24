@@ -5,6 +5,14 @@
 //  Created by Thanadon Boontawee on 19/1/2567 BE.
 //
 
+// rest : manage all button for good touch
+// rest : move number down to center of fruit
+// rest : make good effect for all text in screen
+// rest : move all layer down to center screen
+// rest : Text("") x4 line should trans to better syntax
+// rest : move button to frame border (no need to do)
+// rest : add fade in frame (no need to do)
+
 import SwiftUI
 extension Color {
     init(hex: UInt) {
