@@ -27,20 +27,6 @@ struct ContentView: View {
             Color(hex: 0xFFD524)
             
             VStack {
-                ZStack {
-//                    Image("green")
-//                        .aspectRatio(contentMode: .fill)
-//                        .edgesIgnoringSafeArea(.all)
-//                    Image("Group-title")
-//                        .aspectRatio(contentMode: .fill)
-//                        .edgesIgnoringSafeArea(.all)
-//                        .offset(y: -50)
-                    
-                    Text("Guess me\nwhat I am?")
-                        .foregroundColor(.white)
-                        .font(Font.custom("Fredoka-Regular", size: 25))
-                    
-                }
                 // Square with Border
                 ZStack {
                     RoundedRectangle(cornerRadius: 19)
@@ -54,7 +40,10 @@ struct ContentView: View {
                         .overlay(
                             VStack{
                                 Image("fade")
-                                    
+                                Text("")
+                                Text("")
+                                Text("")
+                                Text("")
                                 Text("ROUND")
                                     .foregroundColor(Color(hex: 0xA85116))
                                     .font(Font.custom("Fredoka-Regular", size: 20))
@@ -97,13 +86,28 @@ struct ContentView: View {
                                 Image("fade")
                             }
                         )
-                    Image("Group-title")
+                    Image("green")
                         .aspectRatio(contentMode: .fill)
                         .edgesIgnoringSafeArea(.all)
-                        .offset(y: -300)
+                        .offset(y: -255)
+                    
+                    Image("group-tree")
+                        .aspectRatio(contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all)
+                        .offset(x:30, y: -373)
+                    
+                    ZStack{
+                        Image("Group-title")
+                            .aspectRatio(contentMode: .fill)
+                            .edgesIgnoringSafeArea(.all)
+                            
+                        Text("Guess me\nwhat I am?")
+                            .foregroundColor(.white)
+                            .font(Font.custom("Fredoka-Regular", size: 25))
+                    }.offset(y: -235)
+                    
                 }
                
-                
                 ZStack {
                     Image("Group-button")
                         .aspectRatio(contentMode: .fill)
