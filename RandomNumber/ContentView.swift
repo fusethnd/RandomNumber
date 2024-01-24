@@ -28,35 +28,42 @@ struct ContentView: View {
             
             VStack {
                 ZStack {
-                    Image("Group-title")
-                        .aspectRatio(contentMode: .fill)
-                        .edgesIgnoringSafeArea(.all)
+//                    Image("green")
+//                        .aspectRatio(contentMode: .fill)
+//                        .edgesIgnoringSafeArea(.all)
+//                    Image("Group-title")
+//                        .aspectRatio(contentMode: .fill)
+//                        .edgesIgnoringSafeArea(.all)
+//                        .offset(y: -50)
+                    
                     Text("Guess me\nwhat I am?")
                         .foregroundColor(.white)
                         .font(Font.custom("Fredoka-Regular", size: 25))
+                    
                 }
                 // Square with Border
                 ZStack {
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: 19)
                         .fill(Color(hex: 0xFFD524))
-                        .frame(width: 327, height: 549.8)
-                    Rectangle()
-                        // .fill(Color(hex: 0xFFD524))
+                        .frame(width: 327, height: 449.8)
+                    RoundedRectangle(cornerRadius: 19)
                         .stroke(Color(hex: 0xA85116), lineWidth: 13)
                         // Customize the border color and width
-                        .frame(width: 327, height: 549.8)
+                        .frame(width: 327, height: 449.8)
                         // Set the width and height of the square
-                        .overlay( // Text("Hello, world")
+                        .overlay(
                             VStack{
-                                Text("Round")
+                                Image("fade")
+                                    
+                                Text("ROUND")
                                     .foregroundColor(Color(hex: 0xA85116))
                                     .font(Font.custom("Fredoka-Regular", size: 20))
                                 ZStack {
-                                    Rectangle()
+                                    RoundedRectangle(cornerRadius: 19)
                                         .fill(Color(.white))
                                         // Customize the border color and width
                                         .frame(width: 278.9, height: 65.6)
-                                    Rectangle()
+                                    RoundedRectangle(cornerRadius: 19)
                                         .stroke(Color(hex: 0xA85116), lineWidth: 8)
                                         // Customize the border color and width
                                         .frame(width: 278.9, height: 65.6)
@@ -86,8 +93,14 @@ struct ContentView: View {
                                         .accentColor(Color(hex: 0xA85116))
                                     Text("100")
                                 }
+                                
+                                Image("fade")
                             }
                         )
+                    Image("Group-title")
+                        .aspectRatio(contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all)
+                        .offset(y: -300)
                 }
                
                 
