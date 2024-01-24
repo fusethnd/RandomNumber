@@ -6,15 +6,13 @@
 //
 
 import SwiftUI
-
 extension Color {
-    init(hex: UInt, alpha: Double = 1.0) {
+    init(hex: UInt) {
         self.init(
             .sRGB,
-            red: Double((hex >> 16) & 0xFF) / 255.0,
-            green: Double((hex >> 8) & 0xFF) / 255.0,
-            blue: Double(hex & 0xFF) / 255.0,
-            opacity: alpha
+            red: Double((hex & 0xFF0000) >> 16) / 255.0,
+            green: Double((hex & 0x00FF00) >> 8) / 255.0,
+            blue: Double(hex & 0x0000FF) / 255.0
         )
     }
 }
@@ -24,38 +22,55 @@ struct ContentView: View {
     @State var guess: Double = 0.0
     @State var showResult = false
     
-//    private var customFont: Font {
-//            Font.custom("Fredoka-Regular", size: 20)
-//    }
-    
     var body: some View {
         ZStack {
             Color(hex: 0xFFD524)
             
             VStack {
-                Text("Hello, world!")
-                    // .font(customFont)
-                    .background(Color(hex: 0xFFD524))
-                
-                Text("Guess me what I am?")
-                VStack {
-                    Text("Guess a number :)")
-                        .font(.headline)
-                    Text("Round \(game.count)")
-                }.padding()
-                
-                Text(String(Game.toint(val: guess)))
-                     
-                HStack {
-                    Text("0")
-                    Slider(value: $guess)
-                    Text("100")
+                ZStack {
+                    Text("Guess me\nwhat I am?")
                 }
+                // Square with Border
+                Rectangle()
+                    .stroke(Color(hex: 0xA85116), lineWidth: 13)
+                    // Customize the border color and width
+                    .frame(width: 327, height: 549.8) //549.8)
+                    // Set the width and height of the square
+                    .overlay( // Text("Hello, world")
+                        VStack{
+                            Text("Round")
+                            ZStack {
+                                Text("\(game.count)")
+                            }
+
+                            ZStack {
+                                // Background Image
+                                Image("fruit")
+                                    .aspectRatio(contentMode: .fill)
+                                    .edgesIgnoringSafeArea(.all)
+
+                                // Text on Top
+                                Text(String(Game.toint(val: guess)))
+                                    .foregroundColor(.white)
+                                    .font(Font.custom("Fredoka-Regular", size: 50))
+                                    .padding()
+                            }
+                            HStack {
+                                Text("0")
+                                Slider(value: $guess)
+                                    .frame(width: 200)
+                                    .accentColor(Color(hex: 0xA85116))
+                                Text("100")
+                            }
+                        }
+                    )
                 
-                Button("Guess!!!") {
+                Button("HIT ME!") {
                     showResult = true
                     game.check(guess: guess)
                 }.padding()
+                
+                
                 .alert(isPresented: $showResult) {
                     Alert(
                         title: Text("Your result"),
