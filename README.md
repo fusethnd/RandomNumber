@@ -1,16 +1,17 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
+
 <br />
 <div align="center">
   <a href="https://github.com/fusethnd/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="RandomNumber/Assets.xcassets/Number-Guessing-Game-icon.imageset//Number-Guessing-Game-icon.png" alt="Logo" width="80" height="80" style="border-radius: 10px;">
   </a>
 
 <h3 align="center">Number Guessing Game</h3>
 
   <p align="center">
-    project_description
+    An Swift/SwiftUI-based iOS game application for guess number 1-100
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
