@@ -5,11 +5,8 @@
 //  Created by Thanadon Boontawee on 19/1/2567 BE.
 //
 
-// rest : manage all button for good touch
-// rest : move number down to center of fruit
 // rest : make good effect for all text in screen
-// rest : Config button
-// rest : move button to frame border (no need to do)
+// rest : make config from internet to real range number for random
 // rest : add fade in frame (no need to do)
 
 import SwiftUI
