@@ -8,8 +8,6 @@
 // rest : manage all button for good touch
 // rest : move number down to center of fruit
 // rest : make good effect for all text in screen
-// rest : move all layer down to center screen
-// rest : Text("") x4 line should trans to better syntax
 // rest : Config button
 // rest : move button to frame border (no need to do)
 // rest : add fade in frame (no need to do)
@@ -40,18 +38,18 @@ struct ContentView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 19)
                         .fill(Color(hex: 0xFFD524))
-                        .frame(width: 327, height: 449.8)
+                        .frame(width: 327, height: 500) // 449.8
                     RoundedRectangle(cornerRadius: 19)
                         .stroke(Color(hex: 0xA85116), lineWidth: 13)
                         // Customize the border color and width
-                        .frame(width: 327, height: 449.8)
+                        .frame(width: 327, height: 500)
                         // Set the width and height of the square
                         .overlay(
                             VStack{
                                 Text("ROUND")
                                     .foregroundColor(Color(hex: 0xA85116))
                                     .font(Font.custom("Fredoka-Regular", size: 20))
-                                    .padding(.top, 75)
+                                    // .padding(.top, 55)
 //                                    .padding(.bottom, 10)
 //                                    .padding(.leading, 150)
 //                                    .padding(.trailing, 150)
@@ -93,19 +91,19 @@ struct ContentView: View {
                                     Text("100")
                                         .padding(.leading, 5)
                                 }
-                                Spacer()
-                                Image("fade")
+                                // Image("fade")
                             }
                         )
                     Image("green")
                         .aspectRatio(contentMode: .fill)
                         .edgesIgnoringSafeArea(.all)
-                        .offset(y: -255)
+                        .offset(y: -295)
                     
                     Image("group-tree")
                         .aspectRatio(contentMode: .fill)
                         .edgesIgnoringSafeArea(.all)
-                        .offset(x:30, y: -370)
+                        .offset(x:30, y: -381)
+                        
                     
                     ZStack{
                         Image("Group-title")
@@ -115,30 +113,68 @@ struct ContentView: View {
                         Text("Guess me\nwhat I am?")
                             .foregroundColor(.white)
                             .font(Font.custom("Fredoka-Regular", size: 25))
-                    }.offset(y: -235)
+                    }.offset(y: -270)
+                    
+                    ZStack {
+                        Image("Group-button")
+                            .aspectRatio(contentMode: .fill)
+                            .edgesIgnoringSafeArea(.all)
+
+                        Button("HIT ME!") {
+                            showResult = true
+                            game.check(guess: guess)
+                        }.padding()
+                        .alert(isPresented: $showResult) {
+                            Alert(
+                                title: Text("Your result"),
+                                message: Text(game.text),
+                                dismissButton: .default(Text("OK")) {
+                                    if game.correct {
+                                        guess = 0
+                                        game.startNewGame()
+                                    }
+                                }
+                            )
+                        }
+                    }.offset(y: 253)
                 }.padding(.top, 200)
                
-                ZStack {
-                    Image("Group-button")
-                        .aspectRatio(contentMode: .fill)
-                        .edgesIgnoringSafeArea(.all)
-
-                    Button("HIT ME!") {
-                        showResult = true
-                        game.check(guess: guess)
-                    }.padding()
-                    .alert(isPresented: $showResult) {
-                        Alert(
-                            title: Text("Your result"),
-                            message: Text(game.text),
-                            dismissButton: .default(Text("OK")) {
-                                if game.correct {
-                                    guess = 0
-                                    game.startNewGame()
-                                }
-                            }
-                        )
-                    }
+//                ZStack {
+//                    Image("Group-button")
+//                        .aspectRatio(contentMode: .fill)
+//                        .edgesIgnoringSafeArea(.all)
+//
+//                    Button("HIT ME!") {
+//                        showResult = true
+//                        game.check(guess: guess)
+//                    }.padding()
+//                    .alert(isPresented: $showResult) {
+//                        Alert(
+//                            title: Text("Your result"),
+//                            message: Text(game.text),
+//                            dismissButton: .default(Text("OK")) {
+//                                if game.correct {
+//                                    guess = 0
+//                                    game.startNewGame()
+//                                }
+//                            }
+//                        )
+//                    }
+//                }
+                Button("Custom Range") {
+                    
+                }.padding(.top, 50)
+                .alert(isPresented: $showResult) {
+                    Alert(
+                        title: Text("Custom Range"),
+                        // message: Text(game.text),
+                        dismissButton: .default(Text("OK")) {
+//                            if game.correct {
+//                                guess = 0
+//                                game.startNewGame()
+//                            }
+                        }
+                    )
                 }
             }
         }
