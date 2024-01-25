@@ -29,6 +29,12 @@ struct ContentView: View {
     @State var guess: Double = 0.0
     @State var showResult = false
     
+    @State private var selectedHr = 0
+    let hr = Array(0...59)
+    @State private var selectedMinute = 0
+    let minutes = Array(0...59)
+    @State private var isShowingPicker = false
+    
     var body: some View {
         ZStack {
             Color(hex: 0xFFD524)
@@ -115,67 +121,70 @@ struct ContentView: View {
                             .font(Font.custom("Fredoka-Regular", size: 25))
                     }.offset(y: -270)
                     
-                    ZStack {
+                    Button(action: {
+                        showResult = true
+                        game.check(guess: guess)
+                    }) {
                         Image("Group-button")
-                            .aspectRatio(contentMode: .fill)
-                            .edgesIgnoringSafeArea(.all)
-
-                        Button("HIT ME!") {
-                            showResult = true
-                            game.check(guess: guess)
-                        }.padding()
-                        .alert(isPresented: $showResult) {
-                            Alert(
-                                title: Text("Your result"),
-                                message: Text(game.text),
-                                dismissButton: .default(Text("OK")) {
-                                    if game.correct {
-                                        guess = 0
-                                        game.startNewGame()
-                                    }
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 269)
+                            .overlay(
+                                VStack {
+                                    Text("HIT ME!")
+                                        .font(Font.custom("Fredoka-Regular", size: 20))
+                                        // .fontWeight(.bold())
+                                        .foregroundColor(.white)
                                 }
                             )
-                        }
                     }.offset(y: 253)
+                    .alert(isPresented: $showResult) {
+                        Alert(
+                            title: Text("Result"),
+                            message: Text(game.text),
+                            dismissButton: .default(Text("OK")) {
+                                if game.correct {
+                                    guess = 0
+                                    game.startNewGame()
+                                }
+                            }
+                        )
+                    }
                 }.padding(.top, 200)
-               
-//                ZStack {
-//                    Image("Group-button")
-//                        .aspectRatio(contentMode: .fill)
-//                        .edgesIgnoringSafeArea(.all)
-//
-//                    Button("HIT ME!") {
-//                        showResult = true
-//                        game.check(guess: guess)
-//                    }.padding()
-//                    .alert(isPresented: $showResult) {
-//                        Alert(
-//                            title: Text("Your result"),
-//                            message: Text(game.text),
-//                            dismissButton: .default(Text("OK")) {
-//                                if game.correct {
-//                                    guess = 0
-//                                    game.startNewGame()
-//                                }
-//                            }
-//                        )
-//                    }
-//                }
+                
                 Button("Custom Range") {
-                    
+                    isShowingPicker = true
                 }.padding(.top, 50)
-                .alert(isPresented: $showResult) {
-                    Alert(
-                        title: Text("Custom Range"),
-                        // message: Text(game.text),
-                        dismissButton: .default(Text("OK")) {
-//                            if game.correct {
-//                                guess = 0
-//                                game.startNewGame()
-//                            }
+                .sheet(isPresented: $isShowingPicker) {
+                    VStack{
+                        HStack{
+                            Picker("Select Minute", selection: $selectedHr) {
+                                ForEach(0..<hr.count) { index in
+                                    Text("\(self.hr[index]) Hr")
+                                }
+                            }
+                            .pickerStyle(WheelPickerStyle())
+                            .padding()
+                            
+                            Text("to")
+                            
+                            Picker("Select Minute", selection: $selectedMinute) {
+                                ForEach(0..<minutes.count) { index in
+                                    Text("\(self.minutes[index]) minutes")
+                                }
+                            }
+                            .pickerStyle(WheelPickerStyle())
+                            .padding()
                         }
-                    )
+                        Button("OK") {
+                            // Handle OK button action
+                            print("Selected Minute: \(selectedMinute) minutes")
+                            isShowingPicker = false
+                        }
+                        .padding()
+                    }
                 }
+                .padding()
             }
         }
         .edgesIgnoringSafeArea(.all)
