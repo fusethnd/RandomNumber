@@ -6,7 +6,7 @@
 //
 
 // rest : make good effect for all text in screen
-// rest : make config from internet to real range number for random
+// rest : continue make config to real range number for random
 // rest : add fade in frame (no need to do)
 
 import SwiftUI
@@ -26,10 +26,10 @@ struct ContentView: View {
     @State var guess: Double = 0.0
     @State var showResult = false
     
-    @State private var selectedHr = 0
-    let hr = Array(0...59)
-    @State private var selectedMinute = 0
-    let minutes = Array(0...59)
+    @State private var selectedFrom = 0
+    let fromAr = Array(0...1000)
+    @State private var selectedTo = 100
+    let toAr = Array(0...1000)
     @State private var isShowingPicker = false
     
     var body: some View {
@@ -86,12 +86,12 @@ struct ContentView: View {
                                         .padding(.top, 40)
                                 }
                                 HStack {
-                                    Text("0")
+                                    Text("\(game.getFrom())")
                                         .padding(.trailing, 5)
                                     Slider(value: $guess)
                                         .frame(width: 200)
                                         .accentColor(Color(hex: 0xA85116))
-                                    Text("100")
+                                    Text("\(game.getTo())")
                                         .padding(.leading, 5)
                                 }
                                 // Image("fade")
@@ -119,8 +119,8 @@ struct ContentView: View {
                     }.offset(y: -270)
                     
                     Button(action: {
-                        showResult = true
-                        game.check(guess: guess)
+                            showResult = true
+                            game.check(guess: guess)
                     }) {
                         Image("Group-button")
                             .resizable()
@@ -155,27 +155,31 @@ struct ContentView: View {
                 .sheet(isPresented: $isShowingPicker) {
                     VStack{
                         HStack{
-                            Picker("Select Minute", selection: $selectedHr) {
-                                ForEach(0..<hr.count) { index in
-                                    Text("\(self.hr[index]) Hr")
+                            Picker("From", selection: $selectedFrom) {
+                                ForEach(0..<fromAr.count) { index in
+                                    Text("\(self.fromAr[index])")
                                 }
                             }
                             .pickerStyle(WheelPickerStyle())
+                            .frame(width: 100)
                             .padding()
                             
                             Text("to")
                             
-                            Picker("Select Minute", selection: $selectedMinute) {
-                                ForEach(0..<minutes.count) { index in
-                                    Text("\(self.minutes[index]) minutes")
+                            Picker("To", selection: $selectedTo) {
+                                ForEach(0..<toAr.count) { index in
+                                    Text("\(self.toAr[index])")
                                 }
                             }
                             .pickerStyle(WheelPickerStyle())
+                            .frame(width: 100)
                             .padding()
                         }
                         Button("OK") {
                             // Handle OK button action
-                            print("Selected Minute: \(selectedMinute) minutes")
+                            print("Selected Range: \(selectedFrom) to \(selectedTo)")
+                            game.setFrom(from: selectedFrom)
+                            game.setTo(to: selectedTo)
                             isShowingPicker = false
                         }
                         .padding()
