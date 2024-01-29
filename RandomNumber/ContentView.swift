@@ -5,10 +5,6 @@
 //  Created by Thanadon Boontawee on 19/1/2567 BE.
 //
 
-// rest : make good effect for all text in screen
-// rest : continue make config to real range number for random
-// rest : add fade in frame (no need to do)
-
 import SwiftUI
 extension Color {
     init(hex: UInt) {
@@ -41,7 +37,7 @@ struct ContentView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 19)
                         .fill(Color(hex: 0xFFD524))
-                        .frame(width: 327, height: 500) // 449.8
+                        .frame(width: 327, height: 500)
                     RoundedRectangle(cornerRadius: 19)
                         .stroke(Color(hex: 0xA85116), lineWidth: 13)
                         // Customize the border color and width
@@ -52,10 +48,6 @@ struct ContentView: View {
                                 Text("ROUND")
                                     .foregroundColor(Color(hex: 0xA85116))
                                     .font(Font.custom("Fredoka-Bold", size: 20))
-                                    // .padding(.top, 55)
-//                                    .padding(.bottom, 10)
-//                                    .padding(.leading, 150)
-//                                    .padding(.trailing, 150)
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 19)
                                         .fill(Color(.white))
@@ -98,7 +90,6 @@ struct ContentView: View {
                                         .font(Font.custom("Fredoka-Regular", size: 18))
                                         .padding(.leading, 5)
                                 }
-                                // Image("fade")
                             }
                         )
                     Image("green")
@@ -159,6 +150,8 @@ struct ContentView: View {
                 Button("Custom Range") {
                     isShowingPicker = true
                 }.padding(.top, 30)
+                .font(Font.custom("Fredoka-Regular", size: 18))
+                .foregroundColor(Color(hex: 0xA85116))
                 .sheet(isPresented: $isShowingPicker) {
                     VStack{
                         HStack{
