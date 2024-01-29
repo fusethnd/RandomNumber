@@ -13,32 +13,32 @@ struct Game {
     var correct = false
     var text = ""
     
-    private var from: Double
-    private var to: Double
+    private var from: Int
+    private var to: Int
     
     init() {
         self.from = 0
         self.to = 100
     }
     
-    mutating func setFrom(from: Double) {
+    mutating func setFrom(from: Int) {
         self.from = from
     }
     
-    mutating func setTo(to: Double) {
+    mutating func setTo(to: Int) {
         self.to = to
     }
     
-    func getFrom() -> Double {
+    func getFrom() -> Int {
         self.from
     }
     
-    func getTo() -> Double {
+    func getTo() -> Int {
         self.to
     }
     
     func getDiff() -> Double {
-        return (self.to - self.from)
+        return Double(self.to - self.from)
     }
     
 //    mutating func check(guess: Int) -> Int {
@@ -55,23 +55,23 @@ struct Game {
 //    }
 //
     mutating func check(guess: Double) {
-        let guessVal = (lround(guess * self.getDiff()) + getFrom())
-        let targetVal = lround(target * self.getDiff()) + getFrom()
+        let guessVal = lround(guess * getDiff()) + getFrom()
+        let targetVal = lround(target * getDiff()) + getFrom()
         
         if guessVal == targetVal {
             text = "Correct! \n You guess in \(count) round"
             correct = true
         } else if guessVal < targetVal {
-            text = "Greater"
+            text = "The number is GREATER than your guess"
             count += 1
         } else {
-            text = "Less"
+            text = "The number is LESS than your guess"
             count += 1
         }
     }
     
-    static func toint(val: Double) -> Int{
-        return lround((val * getDiff()) + getFrom())
+    public func toint(val: Double) -> Int {
+        return lround(val * getDiff()) + getFrom()
     }
     
 //    mutating func startNewGame() {

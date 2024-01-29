@@ -80,7 +80,7 @@ struct ContentView: View {
                                         .edgesIgnoringSafeArea(.all)
                                     
                                     // Text on Top
-                                    Text(String(Game.toint(val: guess)))
+                                    Text(String(game.toint(val: guess)))
                                         .foregroundColor(.white)
                                         .font(Font.custom("Fredoka-Regular", size: 50))
                                         .padding(.top, 40)
