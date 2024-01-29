@@ -105,7 +105,7 @@ struct ContentView: View {
                     Image("group-tree")
                         .aspectRatio(contentMode: .fill)
                         .edgesIgnoringSafeArea(.all)
-                        .offset(x:30, y: -381)
+                        .offset(x:30, y: -365)
                         
                     
                     ZStack{
@@ -151,7 +151,7 @@ struct ContentView: View {
                 
                 Button("Custom Range") {
                     isShowingPicker = true
-                }.padding(.top, 50)
+                }.padding(.top, 30)
                 .sheet(isPresented: $isShowingPicker) {
                     VStack{
                         HStack{
