@@ -51,7 +51,7 @@ struct ContentView: View {
                             VStack{
                                 Text("ROUND")
                                     .foregroundColor(Color(hex: 0xA85116))
-                                    .font(Font.custom("Fredoka-Regular", size: 20))
+                                    .font(Font.custom("Fredoka-Bold", size: 20))
                                     // .padding(.top, 55)
 //                                    .padding(.bottom, 10)
 //                                    .padding(.leading, 150)
@@ -68,7 +68,7 @@ struct ContentView: View {
                                         // Set the width and height of the square
                                         .overlay(
                                             Text("\(game.count)")
-                                                .font(Font.custom("Fredoka-Regular", size: 20))
+                                                .font(Font.custom("Fredoka-SemiBold", size: 30))
                                         )
                                 } .padding(.bottom, 10)
 
@@ -82,16 +82,20 @@ struct ContentView: View {
                                     // Text on Top
                                     Text(String(game.toint(val: guess)))
                                         .foregroundColor(.white)
-                                        .font(Font.custom("Fredoka-Regular", size: 50))
+                                        .font(Font.custom("Fredoka-SemiBold", size: 50))
+                                        .shadow(color: Color(hex: 0xDB620F).opacity(0.5), radius: 0,
+                                                x: 3, y: 3)
                                         .padding(.top, 40)
                                 }
                                 HStack {
                                     Text("\(game.getFrom())")
+                                        .font(Font.custom("Fredoka-Regular", size: 18))
                                         .padding(.trailing, 5)
                                     Slider(value: $guess)
                                         .frame(width: 200)
                                         .accentColor(Color(hex: 0xA85116))
                                     Text("\(game.getTo())")
+                                        .font(Font.custom("Fredoka-Regular", size: 18))
                                         .padding(.leading, 5)
                                 }
                                 // Image("fade")
@@ -113,9 +117,11 @@ struct ContentView: View {
                             .aspectRatio(contentMode: .fill)
                             .edgesIgnoringSafeArea(.all)
                             
-                        Text("Guess me\nwhat I am?")
+                        Text("GUESS ME\nWHAT I AM?")
                             .foregroundColor(.white)
-                            .font(Font.custom("Fredoka-Regular", size: 25))
+                            .font(Font.custom("Fredoka-Bold", size: 30))
+                            .shadow(color: Color(hex: 0xDB620F).opacity(0.5),
+                                radius: 0, x: 3, y: 3)
                     }.offset(y: -270)
                     
                     Button(action: {
@@ -129,9 +135,10 @@ struct ContentView: View {
                             .overlay(
                                 VStack {
                                     Text("HIT ME!")
-                                        .font(Font.custom("Fredoka-Regular", size: 20))
-                                        // .fontWeight(.bold())
+                                        .font(Font.custom("Fredoka-Bold", size: 35))
                                         .foregroundColor(.white)
+                                        .shadow(color: Color(hex: 0xDB620F).opacity(0.5),
+                                            radius: 0, x: 3, y: 3)
                                 }
                             )
                     }.offset(y: 253)
@@ -190,7 +197,7 @@ struct ContentView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .environment(\.font,
-            Font.custom("Fredoka-Regular", size: 20))
+            Font.custom("Fredoka-SemiBold", size: 20))
     }
 }
 
