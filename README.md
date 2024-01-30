@@ -1,5 +1,7 @@
 <a name="readme-top"></a>
-
+ ```sh
+   Thanadon Boontawee - 6410685165 - AS1
+  ```
 <!-- PROJECT LOGO -->
 
 <br />
@@ -11,19 +13,24 @@
 <h3 align="center">Number Guessing Game</h3>
 
   <p align="center">
-    An Swift/SwiftUI-based iOS game application for guess number
+    Game application for guess number
+    <br>
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name"> Demo Video </a>
+    <a href="https://youtu.be/KYvBBvi9v8o"> Demo Video </a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues"> Repository </a>
+    <a href="https://github.com/fusethnd/NumberGuessing"> Repository </a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues"> Report Bug </a>
+    <a href="https://github.com/fusethnd/NumberGuessing/issues"> Report Bug </a>
   </p>
 </div>
 
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br>
+<!-- Requerement 
+1. Player can guess a number that was randomed
+2. Alert function to hint the player that the number that was gueesed is less or greater than the number that was randomed.
+3. When the player win the game (Guess Correctly) alert function will shown the number of round counting that player was guess in the game
+4. Player can restart the game.
+-->
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -92,8 +99,6 @@ To get a local copy up and running follow these simple example steps.
 -->
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- USAGE EXAMPLES -->
 ## Usage
 Player can pick a number for guess and can custom range of number to guess.
@@ -106,7 +111,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTACT -->
+<!-- AUTHORS -->
 ## Authors
 
 Thanadon Boontawee - [@fusethnd](https://github.com/fusethnd) - fusethnd@gmail.com
