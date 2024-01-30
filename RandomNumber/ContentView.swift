@@ -61,6 +61,7 @@ struct ContentView: View {
                                         .overlay(
                                             Text("\(game.count)")
                                                 .font(Font.custom("Fredoka-SemiBold", size: 30))
+                                                .foregroundColor(Color(.black))
                                         )
                                 } .padding(.bottom, 10)
 
