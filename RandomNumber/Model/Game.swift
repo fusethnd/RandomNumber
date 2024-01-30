@@ -41,19 +41,6 @@ struct Game {
         return Double(self.to - self.from)
     }
     
-//    mutating func check(guess: Int) -> Int {
-//        self.count += 1
-//        if (guess == the_number) { // win
-//            return 0
-//        } else if (guess < the_number) { // "The number is greater than your guess."
-//            return -1
-//        } else if (guess > the_number) { // "The number is less than your guess."
-//            return 1
-//        } else { // "Error, there is something wrong."
-//            return 2
-//        }
-//    }
-//
     mutating func check(guess: Double) {
         let guessVal = lround(guess * getDiff()) + getFrom()
         let targetVal = lround(target * getDiff()) + getFrom()
@@ -74,14 +61,8 @@ struct Game {
         return lround(val * getDiff()) + getFrom()
     }
     
-//    mutating func startNewGame() {
-//        count = 0
-//        let start = self.getStart()
-//        let stop = self.getStop()
-//        the_number = Int.random(in: start...stop)
-//    }
-    
     mutating func startNewGame() {
+        correct = false
         count = 0
         target = Double.random(in: 0...1)
     }
