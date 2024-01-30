@@ -185,6 +185,7 @@ struct ContentView: View {
                         }
                         .padding()
                     }
+                    .presentationDetents([.fraction(0.5)])
                 }
                 .padding()
             }
