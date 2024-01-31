@@ -210,7 +210,6 @@ struct ContentView: View {
                     Spacer()
                     // Your existing custom range picker and OK button code
                 }.offset(y: -250)
-                // .padding(.top, 30)
             }
         }
         .edgesIgnoringSafeArea(.all)
