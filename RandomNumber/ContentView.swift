@@ -40,9 +40,9 @@ struct ContentView: View {
                         .frame(width: 327, height: 500)
                     RoundedRectangle(cornerRadius: 19)
                         .stroke(Color(hex: 0xA85116), lineWidth: 13)
-                        // Customize the border color and width
+                    // Customize the border color and width
                         .frame(width: 327, height: 500)
-                        // Set the width and height of the square
+                    // Set the width and height of the square
                         .overlay(
                             VStack{
                                 Text("ROUND")
@@ -51,21 +51,20 @@ struct ContentView: View {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 19)
                                         .fill(Color(.white))
-                                        // Customize the border color and width
+                                    // Customize the border color and width
                                         .frame(width: 278.9, height: 65.6)
                                     RoundedRectangle(cornerRadius: 19)
                                         .stroke(Color(hex: 0xA85116), lineWidth: 8)
-                                        // Customize the border color and width
+                                    // Customize the border color and width
                                         .frame(width: 278.9, height: 65.6)
-                                        // Set the width and height of the square
+                                    // Set the width and height of the square
                                         .overlay(
                                             Text("\(game.count)")
                                                 .font(Font.custom("Fredoka-SemiBold", size: 30))
                                                 .foregroundColor(Color(.black))
                                         )
                                 } .padding(.bottom, 10)
-
-
+                                
                                 ZStack {
                                     // Background Image
                                     Image("fruit")
@@ -93,32 +92,34 @@ struct ContentView: View {
                                 }
                             }
                         )
+                    
                     Image("green")
                         .aspectRatio(contentMode: .fill)
                         .edgesIgnoringSafeArea(.all)
-                        .offset(y: -295)
+                        .padding(.bottom, 600)
                     
                     Image("group-tree")
                         .aspectRatio(contentMode: .fill)
                         .edgesIgnoringSafeArea(.all)
-                        .offset(x:30, y: -365)
-                        
+                        .padding(.bottom, 700)
+                        .offset(x:30)
+                    
                     
                     ZStack{
                         Image("Group-title")
                             .aspectRatio(contentMode: .fill)
                             .edgesIgnoringSafeArea(.all)
-                            
+                        
                         Text("GUESS ME\nWHAT I AM?")
                             .foregroundColor(.white)
                             .font(Font.custom("Fredoka-Bold", size: 30))
                             .shadow(color: Color(hex: 0xDB620F).opacity(0.5),
-                                radius: 0, x: 3, y: 3)
-                    }.offset(y: -270)
+                                    radius: 0, x: 3, y: 3)
+                    }.padding(.bottom, 550)
                     
                     Button(action: {
-                            showResult = true
-                            game.check(guess: guess)
+                        showResult = true
+                        game.check(guess: guess)
                     }) {
                         Image("Group-button")
                             .resizable()
@@ -130,69 +131,90 @@ struct ContentView: View {
                                         .font(Font.custom("Fredoka-Bold", size: 35))
                                         .foregroundColor(.white)
                                         .shadow(color: Color(hex: 0xDB620F).opacity(0.5),
-                                            radius: 0, x: 3, y: 3)
+                                                radius: 0, x: 3, y: 3)
                                 }
                             )
                     }.offset(y: 253)
-                    .alert(isPresented: $showResult) {
-                        Alert(
-                            title: Text("Result"),
-                            message: Text(game.text),
-                            dismissButton: .default(Text("OK")) {
-                                if game.correct {
-                                    guess = 0
-                                    game.startNewGame()
+                        .alert(isPresented: $showResult) {
+                            Alert(
+                                title: Text("Result"),
+                                message: Text(game.text),
+                                dismissButton: .default(Text("OK")) {
+                                    if game.correct {
+                                        guess = 0
+                                        game.startNewGame()
+                                    }
                                 }
-                            }
-                        )
-                    }
+                            )
+                        }
                 }.padding(.top, 200)
                 
-                Button("Custom Range") {
-                    isShowingPicker = true
-                }.padding(.top, 30)
-                .font(Font.custom("Fredoka-Regular", size: 18))
-                .foregroundColor(Color(hex: 0xA85116))
-                .sheet(isPresented: $isShowingPicker) {
-                    VStack{
-                        HStack{
-                            Picker("From", selection: $selectedFrom) {
-                                ForEach(0..<fromAr.count) { index in
-                                    Text("\(self.fromAr[index])")
+                HStack {
+                    Spacer()
+                    ZStack {
+                        Button {
+                            isShowingPicker = true
+                        } label: {
+                            Image("custom-button")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 80, height: 80) // Adjust the size as needed
+                        }.sheet(isPresented: $isShowingPicker) {
+                            VStack{
+                                HStack{
+                                    Picker("From", selection: $selectedFrom) {
+                                        ForEach(0..<fromAr.count) { index in
+                                            Text("\(self.fromAr[index])")
+                                        }
+                                    }
+                                    .pickerStyle(WheelPickerStyle())
+                                    .frame(width: 100)
+                                    .padding()
+                                    
+                                    Text("to")
+                                    
+                                    Picker("To", selection: $selectedTo) {
+                                        ForEach(0..<toAr.count) { index in
+                                            Text("\(self.toAr[index])")
+                                        }
+                                    }
+                                    .pickerStyle(WheelPickerStyle())
+                                    .frame(width: 100)
+                                    .padding()
                                 }
-                            }
-                            .pickerStyle(WheelPickerStyle())
-                            .frame(width: 100)
-                            .padding()
-                            
-                            Text("to")
-                            
-                            Picker("To", selection: $selectedTo) {
-                                ForEach(0..<toAr.count) { index in
-                                    Text("\(self.toAr[index])")
-                                }
-                            }
-                            .pickerStyle(WheelPickerStyle())
-                            .frame(width: 100)
-                            .padding()
+                                Button("OK") {
+                                    // Handle OK button action
+                                    print("Selected Range: \(selectedFrom) to \(selectedTo)")
+                                    game.setFrom(from: selectedFrom)
+                                    game.setTo(to: selectedTo)
+                                    isShowingPicker = false
+                                }.padding()
+                            }.presentationDetents([.fraction(0.5)])
                         }
-                        Button("OK") {
-                            // Handle OK button action
-                            print("Selected Range: \(selectedFrom) to \(selectedTo)")
-                            game.setFrom(from: selectedFrom)
-                            game.setTo(to: selectedTo)
-                            isShowingPicker = false
+                        Image("equalizer").frame(width: 100)
+                    }.offset(x: 235)
+                    Spacer()
+                    ZStack {
+                        Button {
+                            game.startNewGame()
+                        } label: {
+                            Image("restart-button")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 80, height: 80) // Adjust the size as needed
                         }
                         .padding()
-                    }
-                    .presentationDetents([.fraction(0.5)])
-                }
-                .padding()
+                        
+                        Image("undo-arrow").frame(width: 70)
+                    }.offset(x: -235)
+                    Spacer()
+                    // Your existing custom range picker and OK button code
+                }.offset(y: -250)
+                // .padding(.top, 30)
             }
         }
         .edgesIgnoringSafeArea(.all)
-        .environment(\.font,
-            Font.custom("Fredoka-SemiBold", size: 20))
+        .environment(\.font, Font.custom("Fredoka-SemiBold", size: 20))
     }
 }
 
