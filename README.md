@@ -15,7 +15,7 @@
     Game application for guess number
     <br>
     <br />
-    <a href="https://youtu.be/KYvBBvi9v8o">📲 Demo Video </a>
+    <a href="https://www.youtube.com/watch?v=2wCBgUUOhv8">📲 Demo Video </a>
     ·
     <a href="https://github.com/fusethnd/NumberGuessing">📥 Repository </a>
     ·
@@ -48,8 +48,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<div align="center">
+  <img src="readme-img/screenshot.PNG" alt="screenshot">
+</div>
 
 This project is a Swift-based game where players can engage in a number guessing challenge. The game allows the player to choose a custom range of numbers to guess, providing an interactive and customizable experience.
 
@@ -90,19 +91,37 @@ To run the project locally, follow these steps:
 <!-- USAGE EXAMPLES -->
 ## How to Play
 1. **Set Custom Range:**
-   - Launch the game and choose a custom range of numbers for the guessing game. For example, you can select a range between 15 to 40. Once the range is set, start the game.
+  <div align="center">
+    <img src="readme-img/custom.gif" alt="custom-range">
+  </div>
+   - Launch the game and choose a custom range of numbers for the guessing game. For example, you can select a range between 15 to 40. 
+   - Once the range is set, start the game.
 
 2. **Make a Guess:**
    - Enter your guess within the chosen range.
+  <div align="center">
+    <img src="readme-img/playing.gif" alt="make-a-guess">
+  </div>
 
 3. **Receive Feedback:**
    - After each guess, an alert will inform you whether the correct number is greater or less than your guess.
 
 4. **Correct Guess:**
    - Upon correctly guessing the number, the game will display the rounds played before the correct guess.
+   - Greater
+    <div align="center">
+      <img src="readme-img/gretter.gif" alt="gretter">
+    </div>
+   - Less
+    <div align="center">
+      <img src="readme-img/less.gif" alt="less">
+    </div>
 
-5. **Restart the Game:**
+1. **Restart the Game:**
    - Choose to restart the game for restart new game.
+  <div align="center">
+      <img src="readme-img/restart.gif" alt="restart">
+  </div>
 
 <!-- CONTACT -->
 ## Contact
