@@ -91,10 +91,12 @@ To run the project locally, follow these steps:
 <!-- USAGE EXAMPLES -->
 ## How to Play
 1. **Set Custom Range:**
+   - Launch the game and choose a custom range of numbers for the guessing game. For example, you can select a range between 15 to 40. 
+  
   <div align="center">
     <img src="readme-img/custom.gif" alt="custom-range">
   </div>
-   - Launch the game and choose a custom range of numbers for the guessing game. For example, you can select a range between 15 to 40. 
+  
    - Once the range is set, start the game.
 
 2. **Make a Guess:**
@@ -105,9 +107,6 @@ To run the project locally, follow these steps:
 
 3. **Receive Feedback:**
    - After each guess, an alert will inform you whether the correct number is greater or less than your guess.
-
-4. **Correct Guess:**
-   - Upon correctly guessing the number, the game will display the rounds played before the correct guess.
    - Greater
     <div align="center">
       <img src="readme-img/gretter.gif" alt="gretter">
@@ -117,7 +116,11 @@ To run the project locally, follow these steps:
       <img src="readme-img/less.gif" alt="less">
     </div>
 
-1. **Restart the Game:**
+2. **Correct Guess:**
+   - Upon correctly guessing the number, the game will display the rounds played before the correct guess.
+
+
+3. **Restart the Game:**
    - Choose to restart the game for restart new game.
   <div align="center">
       <img src="readme-img/restart.gif" alt="restart">
