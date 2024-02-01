@@ -15,7 +15,7 @@
     <br />
     <a href="https://www.youtube.com/watch?v=2wCBgUUOhv8">📲 Demo Video </a>
     ·
-    <a href="https://github.com/fusethnd/NumberGuessing">📥 Repository </a>
+    <a href="https://github.com/fusethnd/cn436-as1">📥 Repository </a>
     ·
     <a href="https://github.com/fusethnd/NumberGuessing/issues">👾 Report Bug </a>
   </p>
