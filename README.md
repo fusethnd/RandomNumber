@@ -1,7 +1,5 @@
 <a name="readme-top"></a>
-```sh
-   Thanadon Boontawee - 6410685165 - AS1
-```
+> Thanadon Boontawee - 6410685165 - AS1
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -49,7 +47,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <div align="center">
-  <img src="readme-img/screenshot.PNG" alt="screenshot">
+  <img src="readme-img/screenshot.PNG" alt="screenshot" width=500>
 </div>
 
 This project is a Swift-based game where players can engage in a number guessing challenge. The game allows the player to choose a custom range of numbers to guess, providing an interactive and customizable experience.
@@ -93,38 +91,41 @@ To run the project locally, follow these steps:
 1. **Set Custom Range:**
    - Launch the game and choose a custom range of numbers for the guessing game. For example, you can select a range between 15 to 40. 
   
-  <div align="center">
-    <img src="readme-img/custom.gif" alt="custom-range">
-  </div>
+    <div align="center">
+      <img src="readme-img/custom.gif" alt="custom-range" width=300>
+    </div>
   
-   - Once the range is set, start the game.
+    - Once the range is set, start the game.
 
 2. **Make a Guess:**
    - Enter your guess within the chosen range.
-  <div align="center">
-    <img src="readme-img/playing.gif" alt="make-a-guess">
-  </div>
+    <div align="center">
+      <img src="readme-img/playing.gif" alt="make-a-guess" width=300>
+    </div>
 
 3. **Receive Feedback:**
    - After each guess, an alert will inform you whether the correct number is greater or less than your guess.
-   - Greater
+   > The number that was randomed is GREATER than your guess
     <div align="center">
-      <img src="readme-img/gretter.gif" alt="gretter">
+      <img src="readme-img/gretter.gif" alt="gretter" width=300>
     </div>
-   - Less
+   
+   > The number that was randomed is LESS than your guess
     <div align="center">
-      <img src="readme-img/less.gif" alt="less">
+      <img src="readme-img/less.gif" alt="less" width=300>
     </div>
 
-2. **Correct Guess:**
+4. **Correct Guess:**
    - Upon correctly guessing the number, the game will display the rounds played before the correct guess.
+    <div align="center">
+      <img src="readme-img/correct.gif" alt="less" width=300>
+    </div>
 
-
-3. **Restart the Game:**
+5. **Restart the Game:**
    - Choose to restart the game for restart new game.
-  <div align="center">
-      <img src="readme-img/restart.gif" alt="restart">
-  </div>
+    <div align="center">
+        <img src="readme-img/restart.gif" alt="restart" width=300>
+    </div>
 
 <!-- CONTACT -->
 ## Contact
